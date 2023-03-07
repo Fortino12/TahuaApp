@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+     </ion-buttons>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding" *ngIf="user">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img src="http://tahua.com.mx/Archivos/{{user.foto}}"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center"> {{user.name}} {{user.paterno}} {{user.materno}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="ion-text-justify">{{user.edad}} {{user.email}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <h4>Productos</h4>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let prod of product">
+      <ion-card >
+        <img src="http://tahua.com.mx/Archivos/{{prod.imagen}}">
+        {{prod.producto}}
+        {{prod.precio}}
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <h4>Pdf</h4>
+  <ion-list>
+      <ion-card *ngFor="let prod of pdf">
+        <ion-item>
+          <img src="http://tahua.com.mx/Archivos/{{prod.imagen}}" slot="start" width="20%" height="20%">
+          <ion-label>{{prod.producto}}</ion-label>
+          <ion-button fill="outline" slot="end" href="http://tahua.com.mx/Archivos/{{prod.archivo}}">Ver Pdf</ion-button>
+        </ion-item>
+      
+        <ion-card-content>
+          Precio del Producto:{{prod.precio }}
+        </ion-card-content>
+      </ion-card>
+  </ion-list>  
+
+  <ion-button color="primary" routerLink="/direction">Agregar Dirección</ion-button>
+
+</ion-content>

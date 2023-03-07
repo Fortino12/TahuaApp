@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="ion-text-center" >
+    <img src="assets/logotahua.png" width="40%" height="40%" >
+    <p>
+      "Tahuá hablamos el lenguaje de la buena comida."
+    </p>
+  </div>
+  
+  <div class="center">
+  <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+    <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input ngModel name="name"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Paterno</ion-label>
+      <ion-input ngModel name="paterno"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Materno</ion-label>
+      <ion-input ngModel name="materno"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input ngModel name="edad"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" ngModel name="email"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" ngModel name="password"></ion-input>
+    </ion-item>
+  
+    <ion-button type="submit" expand="full" color="succes">Registrar</ion-button>
+  </form>
+  <p text-center>¿Ya tienes una cuenta?</p>
+  <ion-button expand="full" color="primary" routerLink="/login">Iniciar Sessión</ion-button>
+  </div>
+</ion-content>  

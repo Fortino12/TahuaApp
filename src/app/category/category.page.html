@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+     </ion-buttons>
+    <ion-title>category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-card *ngFor='let categoria of category' routerLink="/products/{{categoria.id}}">
+      <img src="http://tahua.com.mx/Archivos/{{categoria.imagen}}">
+      <h4>{{categoria.totonaco}}</h4>
+    </ion-card>
+  </ion-list>
+
+
+</ion-content>

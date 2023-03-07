@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio de Sessión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="ion-text-center" >
+    <img src="assets/logotahua.png" width="40%" height="40%" >
+    <p>
+      "Tahuá hablamos el lenguaje de la buena comida."
+    </p>
+  </div>
+  
+  <div class="center">
+    <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input ngModel type="email" name="email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input ngModel type="password" name="password"></ion-input>
+      </ion-item>
+    
+      <p text-right>Iniciar Sessión</p>
+    
+      <ion-button type="submit" expand="full" color="primary">Iniciar Sessión</ion-button>
+    </form>
+
+    <p text-center>¿No tienes una cuenta?</p>
+    <ion-button expand="full" color="success" routerLink="/register">Registro</ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar >
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
+

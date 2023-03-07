@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+     </ion-buttons>
+    <ion-title>Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="product">
+    <ion-card-header>
+      <ion-img src="http://tahua.com.mx/Archivos/{{product.imagen}}"></ion-img>
+      <ion-card-title>{{product.producto}} ${{product.precio}}</ion-card-title>
+      <ion-card-subtitle>Cantidad:{{product.stock}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{product.descripcion}}.
+    </ion-card-content>
+    <form #form="ngForm" (ngSubmit)="addCart(form)" method="post">
+
+      <ion-item *ngIf="product">
+        <ion-label>Cantidad</ion-label>
+        <ion-input type="number" ngModel name="cantidad" min="1" max="{{product.stock}}"></ion-input>
+      </ion-item>
+
+      <div *ngIf="user">
+        <ion-input type="hidden" ngModel="{{user.id}}" name="user_id"></ion-input>
+      </div>
+
+      <div *ngIf="product">
+        <ion-input type="hidden" ngModel="{{product.id}}" name="product_id"></ion-input>
+      </div>
+  
+      <ion-button type="submit" expand="full" color="primary">Añadir</ion-button>
+  
+    </form>
+  </ion-card>
+  <h4 align="center">Comentarios</h4>
+
+  <ion-list>
+    
+    <ion-card *ngFor="let comment of comment">
+      <ion-item>
+        <img src="http://tahua.com.mx/Archivos/{{comment.foto}}" slot="start" width="20%" height="20%">
+        <ion-label>{{comment.name}}</ion-label>
+        <ion-button fill="outline" slot="end" (click)="delete(comment.id)">Eliminar</ion-button>
+      </ion-item>
+    
+      <ion-card-content>
+        {{comment.comentario}}
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+  <form #form="ngForm" (ngSubmit)="Comment(form)" method="post">
+    <div *ngIf="product">
+      <ion-input type="hidden" ngModel="{{product.id}}" name="product_id"></ion-input>
+    </div>
+    <div *ngIf="user">
+      <ion-input type="hidden" ngModel="{{user.id}}" name="user_id"></ion-input>
+    </div>
+
+    <ion-item>
+      <ion-label>Comentario</ion-label>
+      <ion-input ngModel name="comentario"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="full" color="primary">Crear Comentario</ion-button>
+
+  </form>
+
+</ion-content>

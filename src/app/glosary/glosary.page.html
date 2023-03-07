@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/glosaries"></ion-back-button>
+       </ion-buttons>
+      <ion-title>glosario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-grid class="ion-no-padding" *ngIf="glosary">
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-img src="http://tahua.com.mx/Archivos/{{glosary.imagen}}"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h1 class="ion-text-center"> {{glosary.concepto}}</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p class="ion-text-justify"> {{glosary.definicion}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>

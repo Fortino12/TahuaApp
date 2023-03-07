@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+     </ion-buttons>
+    <ion-title>canast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-card *ngFor="let producto of products">
+      <ion-item>
+        <img src="http://tahua.com.mx/Archivos/{{producto.imagen}}" slot="start" width="20%" height="20%">
+        <ion-label>{{producto.producto}}</ion-label>
+        <ion-button fill="outline" slot="end" (click)="delete(producto.id)">Eliminar</ion-button>
+      </ion-item>
+    
+      <ion-card-content>
+        Cantidad:{{producto.cantidad }}
+        Precio del Producto:{{producto.precio }}
+        Precio Total: {{producto.cantidad * producto.precio | currency}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

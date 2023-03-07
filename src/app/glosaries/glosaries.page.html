@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+     </ion-buttons>
+    <ion-title>terminologia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-lg="3" size-md="4" size-sm="6" *ngFor='let glo of glosary'>
+          <ion-card routerLink="/glosary/{{glo.id}}">
+            <img src="http://tahua.com.mx/Archivos/{{glo.imagen}}">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+</ion-content>

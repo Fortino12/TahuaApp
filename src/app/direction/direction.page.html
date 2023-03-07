@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>direction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #form="ngForm" (ngSubmit)="adddirection(form)" method="post">
+
+    <ion-item>
+      <ion-label>Dirección</ion-label>
+      <ion-input  ngModel name="direccion" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Número</ion-label>
+      <ion-input  ngModel name="numero" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Colonia</ion-label>
+      <ion-input  ngModel name="colonia" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Codigo Postal</ion-label>
+      <ion-input  ngModel name="cp" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Referencia</ion-label>
+      <ion-input ngModel name="referencia" ></ion-input>
+    </ion-item>
+    <ion-item *ngFor="let estado of state">
+      <ion-label>Estado</ion-label>
+      <ion-select ngModel name="estado_id">
+        <ion-select-option   value="{{estado.id}}">{{estado.estado}}</ion-select-option >
+      </ion-select>
+    </ion-item>
+    <ion-item *ngFor="let municipio of municipality">
+      <ion-label>Municipio</ion-label>
+      <ion-select ngModel name="municipio_id">
+        <ion-select-option   value="{{municipio.id}}">{{municipio.municipio}}</ion-select-option >
+      </ion-select>
+    </ion-item>
+    <ion-item *ngFor="let localidad of location">
+      <ion-label>Localidad</ion-label>
+      <ion-select ngModel name="localidad_id">
+        <ion-select-option   value="{{localidad.id}}">{{localidad.localidad}}</ion-select-option >
+      </ion-select>
+    </ion-item>
+    <div *ngIf="user">
+      <ion-input type="hidden" ngModel="{{user.id}}" name="user_id"></ion-input>
+    </div>
+
+
+    <ion-button type="submit" expand="full" color="primary">Añadir</ion-button>
+
+  </form>
+
+</ion-content>

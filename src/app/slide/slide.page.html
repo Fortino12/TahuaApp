@@ -1,0 +1,37 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Bienvenidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div class="center">
+    <ion-slides #slides pager="true" [options]="slideOpts" >
+      <ion-slide class="step-one">
+        <img margintop20 src="assets/Slide/Primero.png">
+        <p>¿Què es Tahuà?</p>
+        <p class="ion-text-justify">
+          En tahuá encaminamos a recordar nuestro origen
+          y usamos la tecnología para fomentar la 
+          gastronomía totonaca.
+        </p>
+      </ion-slide>
+      <ion-slide class="step-one">
+        <img margintop20 src="assets/Slide/segundo.png">
+        <p>¿Què es la cultura Totonaca</p>
+        <p class="ion-text-justify"> 
+          La cultura totonaca es una de las más 
+          emblemáticas que tiene México, se encuentra en 
+          el norte del está de Veracruz.
+        </p>
+      </ion-slide>
+      <ion-slide class="step-one" routerLink="/login">
+        <img margintop20 src="assets/Slide/Tercero.png">
+        <p >Bienvenido</p>
+        <p><a>Interactúa con nuestra aplicación</a></p>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+</ion-content>
